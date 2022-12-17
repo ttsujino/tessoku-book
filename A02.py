@@ -1,11 +1,11 @@
-n, x = map(int, input().split())
-a = list(map(int, input().split()))
-
-answer = "No"
-
-for i in a:
-    if i == x:
-        answer = "Yes"
-        break
-
+N, K = map(int, input().split())
+ 
+answer = 0
+for i in range(1, N + 1):
+  if i < K:
+    for j in range(1, N + 1):
+      k = K - i - j
+      if 1 <= k <= N: 
+        answer += 1
+ 
 print(answer)
