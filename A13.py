@@ -15,3 +15,24 @@ for i in range(N - 1):
     sum += (Answer - i - 1)
 
 print(sum)
+
+# 尺取り法
+N, K = map(int, input().split())
+A = list(map(int, input().split()))
+R = [0] * N
+
+Answer = 0
+for i in range(N - 1):
+    if i == 0:
+        R[i] = 0
+    if i >= 0:
+        R[i] = R[i - 1]
+    
+    while R[i] < N - 1 and A[R[i] + 1] - A[i] <= K:
+        R[i] += 1
+
+Answer = 0
+for i in range(N - 1):
+    Answer += (R[i] - i)
+    
+print(Answer)
